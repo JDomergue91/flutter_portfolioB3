@@ -5,10 +5,10 @@ class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
   @override
-  _HomeViewState createState() => _HomeViewState();
+  HomeViewState createState() => HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class HomeViewState extends State<HomeView> {
   // Liste des mots pour le titre dynamique
   final List<String> titles = ["Front-end", "Back-end", "Gestion de projet"];
   int currentTitleIndex = 0; // Index du titre actuel

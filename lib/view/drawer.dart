@@ -4,6 +4,7 @@ import '../model/menu_item.dart';
 import 'about_view.dart'; // Assurez-vous d'importer AboutView
 import 'contact_view.dart'; // Assurez-vous d'importer ContactView
 import '../controller/app_controller.dart'; // Importez AppController
+import 'articles_view.dart'; // Assurez-vous d'importer ArticlesView
 
 class DrawerView extends StatelessWidget {
   final List<MenuItemData> items;
@@ -49,6 +50,15 @@ class DrawerView extends StatelessWidget {
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => const ContactView(),
               ));
+            },
+          ),
+          ListTile(
+            title: const Text('Articles'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ArticlesView()),
+              );
             },
           ),
         ],
