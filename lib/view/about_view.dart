@@ -6,7 +6,7 @@ class AboutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( // Creation de la page 'A propos' 
       appBar: AppBar(
         title: const Text("À propos"),
       ),
@@ -44,7 +44,7 @@ class AboutView extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             const Center(
-              child: Image(
+              child: Image( // on place une image sur la page
                 image: AssetImage('assets/images/body_main.jpg'),
                 height: 200,
               ),
