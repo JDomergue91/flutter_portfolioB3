@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'drawer.dart'; // Assurez-vous d'importer DrawerView
+import 'drawer.dart';
 
-// Ici je définis le widget de ma page home
 class AboutView extends StatelessWidget {
   const AboutView({super.key});
 
@@ -12,9 +11,9 @@ class AboutView extends StatelessWidget {
         title: const Text("À propos"),
       ),
       drawer: DrawerView(
-        items: [], // Ajoutez ici les éléments de votre menu si nécessaire
+        items: [], 
         selection: (index) {
-          // Logique de sélection ici
+          
         },
       ),
       body: Padding(
@@ -46,7 +45,7 @@ class AboutView extends StatelessWidget {
             const SizedBox(height: 16),
             const Center(
               child: Image(
-                image: AssetImage('assets/images/body_main.jpg'), // Assurez-vous que l'image est dans le bon dossier
+                image: AssetImage('assets/images/body_main.jpg'),
                 height: 200,
               ),
             ),

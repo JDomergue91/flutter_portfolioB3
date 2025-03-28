@@ -15,14 +15,14 @@ class ContactViewState extends State<ContactView> {
   String _message = '';
 
   void _simulateSendEmail() {
-    // Simulez l'envoi d'un e-mail
-    if (_formKey.currentState!.validate()) {
-      // Si le formulaire est valide, montrez un message de succès
+    if (_formKey.currentState?.validate() ?? false) {
+      final emailContent = 'Nom: $_name\nObjet: $_subject\nMessage: $_message';
+      print(emailContent);
+      
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Votre message a été envoyé !')),
       );
     } else {
-      // Si le formulaire n'est pas valide, montrez un message d'erreur
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Veuillez remplir tous les champs correctement.')),
       );
@@ -36,9 +36,9 @@ class ContactViewState extends State<ContactView> {
         title: const Text("Contact"),
       ),
       drawer: DrawerView(
-        items: [], // Ajoutez ici les éléments de votre menu si nécessaire
+        items: [], 
         selection: (index) {
-          // Logique de sélection ici
+          
         },
       ),
       body: Padding(

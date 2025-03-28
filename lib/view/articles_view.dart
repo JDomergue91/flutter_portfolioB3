@@ -15,7 +15,7 @@ class ArticlesViewState extends State<ArticlesView> {
   final int _articlesPerPage = 10;
   bool _isLoading = false;
   bool _hasMoreArticles = true;
-  final int _totalArticles = 100; // je limite a 100 le nombre d'article que je recupere 
+  final int _totalArticles = 100;
 
   @override
   void initState() {
@@ -24,7 +24,7 @@ class ArticlesViewState extends State<ArticlesView> {
   }
 
   Future<void> _fetchArticles() async {
-    if (_isLoading || !_hasMoreArticles) return; // Éviter les appels multiples
+    if (_isLoading || !_hasMoreArticles) return;
 
     setState(() {
       _isLoading = true;
@@ -36,9 +36,9 @@ class ArticlesViewState extends State<ArticlesView> {
       final List<dynamic> fetchedArticles = json.decode(response.body);
       setState(() {
         _isLoading = false;
-        _hasMoreArticles = fetchedArticles.length == _articlesPerPage; // Vérifie s'il y a plus d'articles
-        _articles.clear(); // Effacez les articles précédents
-        _articles.addAll(fetchedArticles); // Ajoutez les nouveaux articles
+        _hasMoreArticles = fetchedArticles.length == _articlesPerPage;
+        _articles.clear();
+        _articles.addAll(fetchedArticles);
       });
     } else {
       throw Exception('Failed to load articles');
@@ -48,13 +48,13 @@ class ArticlesViewState extends State<ArticlesView> {
   void _goToPage(int page) {
     setState(() {
       _currentPage = page;
-      _fetchArticles(); // Récupérez les articles de la page sélectionnée
+      _fetchArticles();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    int totalPages = (_totalArticles / _articlesPerPage).ceil(); // Calculer le nombre total de pages
+    int totalPages = (_totalArticles / _articlesPerPage).ceil();
 
     return Scaffold(
       appBar: AppBar(

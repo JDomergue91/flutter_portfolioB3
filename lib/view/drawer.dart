@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 import '../model/menu_item.dart';
-import 'about_view.dart'; // Assurez-vous d'importer AboutView
-import 'contact_view.dart'; // Assurez-vous d'importer ContactView
-import '../controller/app_controller.dart'; // Importez AppController
-import 'articles_view.dart'; // Assurez-vous d'importer ArticlesView
+import 'about_view.dart'; 
+import 'contact_view.dart'; 
+import '../controller/app_controller.dart'; 
+import 'articles_view.dart'; 
 
 class DrawerView extends StatelessWidget {
   final List<MenuItemData> items;
   final Function(int)
-      selection; // La fonction qui va me permettre de selectionner le widget à afficher
+      selection; 
 
   const DrawerView({super.key, required this.items, required this.selection});
 
@@ -18,14 +18,14 @@ class DrawerView extends StatelessWidget {
     return Drawer(
       child: ListView(
         children: [
-          // Titre statique
+          
           const DrawerHeader(
             child: Text(
               'Mes pages',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
           ),
-          // Élément Accueil
+          
           ListTile(
             title: const Text("Accueil"),
             onTap: () {
@@ -34,7 +34,7 @@ class DrawerView extends StatelessWidget {
               ));
             },
           ),
-          // Élément About
+          
           ListTile(
             title: const Text("À propos"),
             onTap: () {
@@ -43,7 +43,7 @@ class DrawerView extends StatelessWidget {
               ));
             },
           ),
-          // Élément Contact
+          
           ListTile(
             title: const Text("Contact"),
             onTap: () {

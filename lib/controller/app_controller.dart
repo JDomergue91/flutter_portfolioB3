@@ -1,7 +1,7 @@
 // Packages Flutter
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'dart:async'; // Ajout de l'import pour Timer
+import 'dart:async';
 
 // // Models
 import '../model/menu_item.dart';
@@ -9,7 +9,7 @@ import '../model/menu_item.dart';
 // // Views
 import 'package:exercice_flutter/view/contact_view.dart';
 import 'package:exercice_flutter/view/about_view.dart';
-import '../view/home_view.dart'; // Importer la nouvelle vue Home
+import '../view/home_view.dart';
 
 import '../view/drawer.dart';
 
@@ -26,19 +26,18 @@ class AppController extends StatefulWidget {
 
 @override
 class AppControllerState extends State<AppController> {
-  // Cette index va nous permettre de savoir dans quel vue on veut être
   int index = 0;
 
 
-  // Liste des mots pour le titre dynamique
+  
   final List<String> titles = ["Front-end", "Back-end", "Gestion de projet"];
-  int currentTitleIndex = 0; // Index du titre actuel
-  Timer? timer; // Timer pour changer le titre
+  int currentTitleIndex = 0; 
+  Timer? timer;
   bool showAllChips = false;
 
   final List<MenuItemData> menu = [
-    MenuItemData(name: "About", view: const AboutView()), // Ma page about
-    MenuItemData(name: "Contact", view: const ContactView()), // Ma page contact ajoutée
+    MenuItemData(name: "About", view: const AboutView()),
+    MenuItemData(name: "Contact", view: const ContactView()),
   ];
 
   @override
@@ -53,7 +52,7 @@ class AppControllerState extends State<AppController> {
 
   @override
   void dispose() {
-    timer?.cancel(); // Annuler le timer lors de la destruction de l'état
+    timer?.cancel();
     super.dispose();
   }
 
@@ -75,7 +74,7 @@ class AppControllerState extends State<AppController> {
         items: menu,
         selection: selected,
       ),
-      body: const HomeView(), // Utiliser la nouvelle vue Home
+      body: const HomeView(),
     );
   }
 }

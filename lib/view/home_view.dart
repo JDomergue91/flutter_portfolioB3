@@ -11,9 +11,9 @@ class HomeView extends StatefulWidget {
 class HomeViewState extends State<HomeView> {
   // Liste des mots pour le titre dynamique
   final List<String> titles = ["Front-end", "Back-end", "Gestion de projet"];
-  int currentTitleIndex = 0; // Index du titre actuel
-  Timer? timer; // Timer pour changer le titre
-  bool showAllChips = false; // État pour afficher tous les chips
+  int currentTitleIndex = 0; 
+  Timer? timer; 
+  bool showAllChips = false; 
 
   @override
   void initState() {
@@ -27,7 +27,7 @@ class HomeViewState extends State<HomeView> {
 
   @override
   void dispose() {
-    timer?.cancel(); // Annuler le timer lors de la destruction de l'état
+    timer?.cancel();
     super.dispose();
   }
 
@@ -55,7 +55,7 @@ class HomeViewState extends State<HomeView> {
                 child: Column(
                   children: [
                     Text(
-                      titles[currentTitleIndex], // Titre dynamique
+                      titles[currentTitleIndex],
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -95,7 +95,7 @@ class HomeViewState extends State<HomeView> {
                   GestureDetector(
                     onTap: () {
                       setState(() {
-                        showAllChips = !showAllChips; // Inverser l'état
+                        showAllChips = !showAllChips; 
                       });
                     },
                     child: Chip(
