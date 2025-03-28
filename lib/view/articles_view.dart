@@ -9,6 +9,7 @@ class ArticlesView extends StatefulWidget {
   ArticlesViewState createState() => ArticlesViewState();
 }
 
+// on gere la pagination
 class ArticlesViewState extends State<ArticlesView> {
   final List<dynamic> _articles = [];
   int _currentPage = 1;
@@ -29,12 +30,12 @@ class ArticlesViewState extends State<ArticlesView> {
     setState(() {
       _isLoading = true;
     });
-
+// recuperation des article via l'API
     final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts?_page=$_currentPage&_limit=$_articlesPerPage'));
 
     if (response.statusCode == 200) {
       final List<dynamic> fetchedArticles = json.decode(response.body);
-      setState(() {
+      setState(() { // on initionalise les articles 
         _isLoading = false;
         _hasMoreArticles = fetchedArticles.length == _articlesPerPage;
         _articles.clear();
@@ -56,7 +57,7 @@ class ArticlesViewState extends State<ArticlesView> {
   Widget build(BuildContext context) {
     int totalPages = (_totalArticles / _articlesPerPage).ceil();
 
-    return Scaffold(
+    return Scaffold( // affichage des articles
       appBar: AppBar(
         title: const Text('Articles'),
       ),
@@ -74,7 +75,7 @@ class ArticlesViewState extends State<ArticlesView> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ArticleDetailView(article: _articles[index]),
+                              builder: (context) => ArticleDetailView(article: _articles[index]), // on build egalement un vu de detail sur l'article selectionner
                             ),
                           );
                         },
@@ -84,7 +85,7 @@ class ArticlesViewState extends State<ArticlesView> {
           ),
           // Pagination
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center, // on gere la pagination avec l'affichage des boutons et la redirection quand on clic sur la page
             children: List.generate(totalPages, (index) {
               int pageNumber = index + 1;
               return Padding(
@@ -110,6 +111,8 @@ class ArticleDetailView extends StatelessWidget {
 
   const ArticleDetailView({super.key, required this.article});
 
+
+// Vu detail pour les articles
   @override
   Widget build(BuildContext context) {
     return Scaffold(

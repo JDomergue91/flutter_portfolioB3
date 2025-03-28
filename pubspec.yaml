@@ -40,6 +40,8 @@ dependencies:
   firebase_auth: ^5.5.1
   firebase_core: ^3.12.1
   path_provider: ^2.1.5
+  shared_preferences: ^2.5.3
+  shared_preferences_web: ^2.4.3
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +68,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/body_main.jpg
+    # ou pour inclure tous les fichiers d'un dossier
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

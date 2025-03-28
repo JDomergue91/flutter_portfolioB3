@@ -15,18 +15,18 @@ class DrawerView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
+    return Drawer( // on creer le drawer 
       child: ListView(
         children: [
           
           const DrawerHeader(
             child: Text(
-              'Mes pages',
+              'Mes pages', // on creer un titre a notre drawer
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
           ),
           
-          ListTile(
+          ListTile( // creation d'un element de la liste de notre drawer, il permet la redirection vers la page cible via le controller
             title: const Text("Accueil"),
             onTap: () {
               Navigator.of(context).pushReplacement(MaterialPageRoute(

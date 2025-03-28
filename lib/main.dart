@@ -1,26 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:exercice_flutter/controller/app_controller.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'view/home_view.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(const MyApp());
+void main() {
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Portfolio Jonathan Domergue',
+      title: 'Mon Application',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primarySwatch: Colors.blue, // definition de la couleur du theme
       ),
-      debugShowCheckedModeBanner: false, 
-       home: const AppController(title: 'Domergue jonathan'),
+      home: HomeView(), // on defini la view de base lors du chargement de l'app
     );
   }
 }
